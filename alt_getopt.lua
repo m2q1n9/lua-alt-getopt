@@ -21,8 +21,6 @@
 
 local type, pairs, ipairs, io, os = type, pairs, ipairs, io, os
 
-module ("alt_getopt")
-
 local function convert_short2long (opts)
    local i = 1
    local len = #opts
@@ -164,3 +162,10 @@ function get_opts (arg, sh_opts, long_opts)
 
    return ret,optind
 end
+
+alt_getopt = {
+    get_ordered_opts = get_ordered_opts,
+    get_opts = get_opts,
+}
+
+return alt_getopt
